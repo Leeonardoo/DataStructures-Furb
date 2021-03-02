@@ -12,7 +12,6 @@ public class ListaEstatica {
     private void redimensionar() {
         int[] oldArr = info;
         info = new int[oldArr.length + 10];
-//            if (oldArr.length >= 0) System.arraycopy(oldArr, 0, info, 0, oldArr.length);
         for (int i = 0; i < oldArr.length; i++) {
             info[i] = oldArr[i];
         }
@@ -28,7 +27,7 @@ public class ListaEstatica {
     }
 
     public void exibir() {
-        System.out.println(Arrays.toString(info));
+        System.out.println(this.toString());
     }
 
     public int buscar(int value) {
@@ -40,11 +39,15 @@ public class ListaEstatica {
     }
 
     public int obterElemento(int position) {
-        return -1;
+        //Zero-indexed
+        if (position > getTamanho() - 1 || position <= 0) {
+            throw new IndexOutOfBoundsException("Trying to access an index out the bounds of the current items on the list! Requested index was " + position + " while the size is " + getTamanho());
+        }
+        return info[position];
     }
 
     public boolean estaVazia() {
-        return false;
+        return tamanho == 0;
     }
 
     public int getTamanho() {
@@ -53,6 +56,6 @@ public class ListaEstatica {
 
     @Override
     public String toString() {
-        return "";
+        return Arrays.toString(info);
     }
 }

@@ -33,5 +33,7 @@ public class Main {
         test.exibir();
         test.inserir(15);
         test.exibir();
+
+        System.out.println(test.obterElemento(14));
     }
 }
