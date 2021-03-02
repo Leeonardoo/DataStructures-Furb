@@ -1,3 +1,5 @@
+package com.leonardo.staticlist;
+
 import java.util.Arrays;
 
 public class ListaEstatica {
