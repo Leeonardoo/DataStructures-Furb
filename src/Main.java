@@ -1,0 +1,37 @@
+public class Main {
+
+    public static void main(String[] args) {
+        ListaEstatica test = new ListaEstatica();
+
+        test.inserir(1);
+        test.exibir();
+        test.inserir(2);
+        test.exibir();
+        test.inserir(3);
+        test.exibir();
+        test.inserir(4);
+        test.exibir();
+        test.inserir(5);
+        test.exibir();
+        test.inserir(6);
+        test.exibir();
+        test.inserir(7);
+        test.exibir();
+        test.inserir(8);
+        test.exibir();
+        test.inserir(9);
+        test.exibir();
+        test.inserir(10);
+        test.exibir();
+        test.inserir(11);
+        test.exibir();
+        test.inserir(12);
+        test.exibir();
+        test.inserir(13);
+        test.exibir();
+        test.inserir(14);
+        test.exibir();
+        test.inserir(15);
+        test.exibir();
+    }
+}
