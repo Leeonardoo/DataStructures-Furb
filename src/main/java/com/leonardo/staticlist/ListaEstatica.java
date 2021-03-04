@@ -33,16 +33,33 @@ public class ListaEstatica {
     }
 
     public int buscar(int value) {
+        for (int i = 0; i < getTamanho() -1; i++) {
+            if (obterElemento(i) == value) {
+                return i;
+            }
+        }
         return -1;
     }
 
     public void retirar(int value) {
+        int index = buscar(value);
 
+        if (index != -1) {
+            for (int i = index; i < getTamanho() - 1; i++) {
+                info[i] = info[i + 1];
+            }
+            tamanho--;
+        }
+    }
+
+    public void liberar() {
+        info = new int[10];
+        tamanho = 0;
     }
 
     public int obterElemento(int position) {
         //Zero-indexed
-        if (position > getTamanho() - 1 || position <= 0) {
+        if (position > getTamanho() - 1 || position < 0) {
             throw new IndexOutOfBoundsException("Trying to access an index out the bounds of the current items on the list! Requested index was " + position + " while the size is " + getTamanho());
         }
         return info[position];
@@ -58,6 +75,14 @@ public class ListaEstatica {
 
     @Override
     public String toString() {
-        return Arrays.toString(info);
+        StringBuilder elements = new StringBuilder();
+        for (int i = 0; i < getTamanho(); i++) {
+            elements.append(obterElemento(i));
+            if (i < getTamanho() -1) {
+                elements.append(",");
+            }
+        }
+
+        return elements.toString();
     }
 }

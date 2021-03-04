@@ -1,5 +1,7 @@
 package com.leonardo.staticlist;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -37,5 +39,11 @@ public class Main {
         test.exibir();
 
         System.out.println(test.obterElemento(14));
+
+        System.out.println(test.getTamanho());
+        test.retirar(13);
+        test.exibir();
+        System.out.println(test.getTamanho());
+        test.retirar(16);
     }
 }
