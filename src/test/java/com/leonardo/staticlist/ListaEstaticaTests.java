@@ -36,4 +36,27 @@ public class ListaEstaticaTests {
 
         assertEquals(4, testList.getTamanho());
     }
+
+    @Test
+    @DisplayName("buscar() should return the value's index")
+    void findIndex() {
+        testList.inserir(5);
+        testList.inserir(10);
+        testList.inserir(15);
+        testList.inserir(20);
+
+        assertEquals(2, testList.buscar(15));
+    }
+
+    @Test
+    @DisplayName("buscar() on a non-existing value should return -1")
+    void findNonExisting() {
+        testList.inserir(5);
+        testList.inserir(10);
+        testList.inserir(15);
+        testList.inserir(20);
+
+        assertEquals(-1, testList.buscar(30));
+    }
+
 }
