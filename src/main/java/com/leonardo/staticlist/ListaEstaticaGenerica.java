@@ -19,12 +19,12 @@ public class ListaEstaticaGenerica <T>  {
         }
     }
 
-    public void inserir(T value) {
+    public void inserir(T item) {
         if (tamanho == info.length) {
             redimensionar();
         }
         //Zero-indexed
-        info[tamanho] = value;
+        info[tamanho] = item;
         tamanho++;
     }
 

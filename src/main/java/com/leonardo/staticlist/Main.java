@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        ListaEstatica test = new ListaEstatica();
+        ListaEstaticaGenericaKt<Integer> test = new ListaEstaticaGenericaKt<>();
 
         test.inserir(1);
         test.exibir();
