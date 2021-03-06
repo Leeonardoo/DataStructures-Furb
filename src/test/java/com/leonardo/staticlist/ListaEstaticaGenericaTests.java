@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ListaEstaticaTests {
+public class ListaEstaticaGenericaTests {
 
-    private ListaEstatica testList;
+    private ListaEstaticaGenerica<Integer> testList;
 
     @BeforeEach
     void setup() {
-        testList = new ListaEstatica();
+        testList = new ListaEstaticaGenerica<>();
     }
 
     @Test

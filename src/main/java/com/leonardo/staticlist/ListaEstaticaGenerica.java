@@ -1,23 +1,25 @@
 package com.leonardo.staticlist;
 
-public class ListaEstatica {
-    private int[] info;
+public class ListaEstaticaGenerica <T>  {
+    private T[] info;
     private int tamanho;
 
-    public ListaEstatica() {
-        info = new int[10];
+    @SuppressWarnings("unchecked")
+    public ListaEstaticaGenerica() {
+        info = (T[])new Object[10];
         tamanho = 0; //Empty
     }
 
+    @SuppressWarnings("unchecked")
     private void redimensionar() {
-        int[] oldArr = info;
-        info = new int[oldArr.length + 10];
+        T[] oldArr = info;
+        info = (T[])new Object[oldArr.length + 10];
         for (int i = 0; i < oldArr.length; i++) {
             info[i] = oldArr[i];
         }
     }
 
-    public void inserir(int value) {
+    public void inserir(T value) {
         if (tamanho == info.length) {
             redimensionar();
         }
@@ -30,17 +32,17 @@ public class ListaEstatica {
         System.out.println(this.toString());
     }
 
-    public int buscar(int value) {
+    public int buscar(T item) {
         for (int i = 0; i < getTamanho() -1; i++) {
-            if (obterElemento(i) == value) {
+            if (obterElemento(i) == item) {
                 return i;
             }
         }
         return -1;
     }
 
-    public void retirar(int value) {
-        int index = buscar(value);
+    public void retirar(T item) {
+        int index = buscar(item);
 
         if (index != -1) {
             for (int i = index; i < getTamanho() - 1; i++) {
@@ -50,12 +52,13 @@ public class ListaEstatica {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public void liberar() {
-        info = new int[10];
+        info = (T[])new Object[10];
         tamanho = 0;
     }
 
-    public int obterElemento(int position) {
+    public T obterElemento(int position) {
         //Zero-indexed
         if (position > getTamanho() - 1 || position < 0) {
             throw new IndexOutOfBoundsException("Trying to access an index out the bounds of the current items on the list! Requested index was " + position + " while the size is " + getTamanho());
