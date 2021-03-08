@@ -1,14 +1,10 @@
 package com.leonardo.staticlist;
 
+@SuppressWarnings("unchecked")
 public class ListaEstaticaGenerica <T>  {
-    private T[] info;
-    private int tamanho;
 
-    @SuppressWarnings("unchecked")
-    public ListaEstaticaGenerica() {
-        info = (T[])new Object[10];
-        tamanho = 0; //Empty
-    }
+    private T[] info = (T[])new Object[10];
+    private int tamanho = 0;
 
     @SuppressWarnings("unchecked")
     private void redimensionar() {
