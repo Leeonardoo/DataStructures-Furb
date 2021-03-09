@@ -1,6 +1,6 @@
 package com.leonardo.staticlist
 
-class ListaEstaticaGenericaKt <T> {
+class ListaEstaticaGenericaKt<T> {
 
     @Suppress("UNCHECKED_CAST")
     private var info = Array<Any>(10) {} as Array<T>
@@ -68,7 +68,7 @@ class ListaEstaticaGenericaKt <T> {
     override fun toString(): String {
         val elements = StringBuilder()
         for (i in 0 until tamanho) {
-            elements.append(obterElemento(i))
+            elements.append(obterElemento(i).toString())
             if (i < tamanho - 1) {
                 elements.append(",")
             }

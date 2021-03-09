@@ -1,26 +1,24 @@
 package com.leonardo.staticlist;
 
-@SuppressWarnings("unchecked")
-public class ListaEstaticaGenerica<T> {
+public class ListaEstaticaObject {
 
-    private T[] info = (T[]) new Object[10];
+    private Object[] info = new Object[10];
     private int tamanho = 0;
 
-    @SuppressWarnings("unchecked")
     private void redimensionar() {
-        T[] oldArr = info;
-        info = (T[]) new Object[oldArr.length + 10];
+        Object[] oldArr = info;
+        info = new Object[oldArr.length + 10];
         for (int i = 0; i < oldArr.length; i++) {
             info[i] = oldArr[i];
         }
     }
 
-    public void inserir(T item) {
+    public void inserir(int value) {
         if (tamanho == info.length) {
             redimensionar();
         }
         //Zero-indexed
-        info[tamanho] = item;
+        info[tamanho] = value;
         tamanho++;
     }
 
@@ -28,17 +26,17 @@ public class ListaEstaticaGenerica<T> {
         System.out.println(this.toString());
     }
 
-    public int buscar(T item) {
-        for (int i = 0; i < getTamanho() - 1; i++) {
-            if (obterElemento(i).equals(item)) {
+    public int buscar(Object value) {
+        for (int i = 0; i < getTamanho() -1; i++) {
+            if (obterElemento(i).equals(value)) {
                 return i;
             }
         }
         return -1;
     }
 
-    public void retirar(T item) {
-        int index = buscar(item);
+    public void retirar(Object value) {
+        int index = buscar(value);
 
         if (index != -1) {
             for (int i = index; i < getTamanho() - 1; i++) {
@@ -48,13 +46,12 @@ public class ListaEstaticaGenerica<T> {
         }
     }
 
-    @SuppressWarnings("unchecked")
     public void liberar() {
-        info = (T[]) new Object[10];
+        info = new Object[10];
         tamanho = 0;
     }
 
-    public T obterElemento(int position) {
+    public Object obterElemento(int position) {
         //Zero-indexed
         if (position > getTamanho() - 1 || position < 0) {
             throw new IndexOutOfBoundsException("Trying to access an index out the bounds of the current items on the list! Requested index was " + position + " while the size is " + getTamanho());
@@ -75,7 +72,7 @@ public class ListaEstaticaGenerica<T> {
         StringBuilder elements = new StringBuilder();
         for (int i = 0; i < getTamanho(); i++) {
             elements.append(obterElemento(i).toString());
-            if (i < getTamanho() - 1) {
+            if (i < getTamanho() -1) {
                 elements.append(",");
             }
         }
