@@ -70,6 +70,15 @@ public class ListaEstaticaGenerica<T> {
         return tamanho;
     }
 
+    public void inverter() {
+        for (int i = 0; i < getTamanho() / 2; i++) {
+            T temp = info[i];
+            int farIndex = getTamanho() - 1 - i; //Zero-indexed
+            info[i] = info[farIndex];
+            info[farIndex] = temp;
+        }
+    }
+
     @Override
     public String toString() {
         StringBuilder elements = new StringBuilder();

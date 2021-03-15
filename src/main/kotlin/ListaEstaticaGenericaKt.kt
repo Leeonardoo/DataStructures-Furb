@@ -65,6 +65,15 @@ class ListaEstaticaGenericaKt<T> {
 
     fun estaVazia() = tamanho == 0
 
+    fun inverter() {
+        for (i in 0 until tamanho / 2) {
+            val temp = info[i]
+            val farIndex: Int = tamanho - 1 - i //Zero-indexed
+            info[i] = info[farIndex]
+            info[farIndex] = temp
+        }
+    }
+
     override fun toString(): String {
         val elements = StringBuilder()
         for (i in 0 until tamanho) {
