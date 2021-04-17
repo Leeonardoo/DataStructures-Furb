@@ -1,18 +1,19 @@
-package com.leonardo.staticlist;
+package com.leonardo.datastructures;
 
+import com.leonardo.datastructures.staticlist.ListaEstaticaGenerica;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ListaEstaticaTests {
+public class ListaEstaticaGenericaTests {
 
-    private ListaEstatica testList;
+    private ListaEstaticaGenerica<Integer> testList;
 
     @BeforeEach
     void setup() {
-        testList = new ListaEstatica();
+        testList = new ListaEstaticaGenerica<>();
     }
 
     @Test
@@ -80,7 +81,7 @@ public class ListaEstaticaTests {
         }
 
         assertEquals("1,2,3,4,5,6,7,8,9,10,11,12,13,14,15", testList.toString());
-        assertEquals(4, testList.getTamanho());
+        assertEquals(15, testList.getTamanho());
     }
 
     @Test
@@ -116,5 +117,32 @@ public class ListaEstaticaTests {
         testList.liberar();
 
         assertTrue(testList.estaVazia());
+    }
+
+    @Test
+    @DisplayName("inverter() should invert all of items inside in the list")
+    void testInvert() {
+        testList.inserir(5);
+        testList.inserir(10);
+        testList.inserir(15);
+        testList.inserir(20);
+
+        testList.inverter();
+
+        assertEquals("20,15,10,5", testList.toString());
+    }
+
+    @Test
+    @DisplayName("inverter() should invert all items even with a odd number of items")
+    void testOddInvert() {
+        testList.inserir(5);
+        testList.inserir(10);
+        testList.inserir(15);
+        testList.inserir(20);
+        testList.inserir(25);
+
+        testList.inverter();
+
+        assertEquals("25,20,15,10,5", testList.toString());
     }
 }

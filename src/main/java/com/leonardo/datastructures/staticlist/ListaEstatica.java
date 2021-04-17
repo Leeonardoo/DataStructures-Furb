@@ -1,13 +1,13 @@
-package com.leonardo.staticlist;
+package com.leonardo.datastructures.staticlist;
 
-public class ListaEstaticaObject {
+public class ListaEstatica {
 
-    private Object[] info = new Object[10];
+    private int[] info = new int[10];
     private int tamanho = 0;
 
     private void redimensionar() {
-        Object[] oldArr = info;
-        info = new Object[oldArr.length + 10];
+        int[] oldArr = info;
+        info = new int[oldArr.length + 10];
         for (int i = 0; i < oldArr.length; i++) {
             info[i] = oldArr[i];
         }
@@ -26,16 +26,16 @@ public class ListaEstaticaObject {
         System.out.println(this.toString());
     }
 
-    public int buscar(Object value) {
+    public int buscar(int value) {
         for (int i = 0; i < getTamanho() -1; i++) {
-            if (obterElemento(i).equals(value)) {
+            if (obterElemento(i) == value) {
                 return i;
             }
         }
         return -1;
     }
 
-    public void retirar(Object value) {
+    public void retirar(int value) {
         int index = buscar(value);
 
         if (index != -1) {
@@ -47,11 +47,11 @@ public class ListaEstaticaObject {
     }
 
     public void liberar() {
-        info = new Object[10];
+        info = new int[10];
         tamanho = 0;
     }
 
-    public Object obterElemento(int position) {
+    public int obterElemento(int position) {
         //Zero-indexed
         if (position > getTamanho() - 1 || position < 0) {
             throw new IndexOutOfBoundsException("Trying to access an index out the bounds of the current items on the list! Requested index was " + position + " while the size is " + getTamanho());
@@ -71,7 +71,7 @@ public class ListaEstaticaObject {
     public String toString() {
         StringBuilder elements = new StringBuilder();
         for (int i = 0; i < getTamanho(); i++) {
-            elements.append(obterElemento(i).toString());
+            elements.append(obterElemento(i));
             if (i < getTamanho() -1) {
                 elements.append(",");
             }
