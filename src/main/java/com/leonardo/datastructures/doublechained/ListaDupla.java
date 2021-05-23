@@ -5,7 +5,7 @@ public class ListaDupla<T> {
     private NoListaDupla<T> primeiro;
 
     public NoListaDupla<T> getPrimeiro() {
-        return getPrimeiro();
+        return primeiro;
     }
 
     public void inserir (T valor) {
@@ -48,7 +48,7 @@ public class ListaDupla<T> {
         }
     }
 
-    private NoListaDupla<T> obterUltimo() {
+    public NoListaDupla<T> obterUltimo() {
         NoListaDupla<T> ultimo = primeiro;
 
         NoListaDupla<T> p = primeiro;
