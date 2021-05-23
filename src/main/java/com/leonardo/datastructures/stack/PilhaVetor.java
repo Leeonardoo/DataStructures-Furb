@@ -55,7 +55,7 @@ public class PilhaVetor<T> implements Pilha<T> {
     public String toString() {
         StringBuilder elements = new StringBuilder();
 
-        for (int index = 0; index < tamanho; index++) {
+        for (int index = tamanho-1; index >= 0; index--) {
             elements.append(info[index].toString()).append(",");
         }
 
