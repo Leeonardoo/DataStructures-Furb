@@ -1,7 +1,5 @@
 package com.leonardo.datastructures;
 
-import com.leonardo.datastructures.stack.PilhaCheiaException;
-import com.leonardo.datastructures.stack.PilhaVetor;
 import com.leonardo.datastructures.tree.binary.ArvoreBinaria;
 import com.leonardo.datastructures.tree.binary.NoArvoreBinaria;
 import org.junit.jupiter.api.BeforeEach;
