@@ -1,7 +1,5 @@
 package com.leonardo.datastructures.staticlist;
 
-import kotlin.BuilderInference;
-
 public abstract class ListaAbstract<T> {
 
     private T[] info;
