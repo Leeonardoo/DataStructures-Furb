@@ -54,4 +54,29 @@ public class MapaDispersao<T> {
 
         return null;
     }
+
+    public void realocarMapa(int novoTamanho) {
+        ListaEncadeada<NoMapa<T>>[] tmp = info;
+
+        info = new ListaEncadeada[novoTamanho];
+
+        for (int i = 0; i < tmp.length-1; i++) {
+            if (tmp[i] != null) {
+                int size = tmp[i].obterComprimento();
+
+                for (int j = 0; j < size; j++) {
+                    NoLista<NoMapa<T>> item = tmp[i].obterNo(j);
+
+                    if (item.getInfo() != null) {
+                        inserir(item.getInfo().getChave(), item.getInfo().getInfo());
+                    }
+
+                    while (item.getProximo() != null) {
+                        item = item.getProximo();
+                        inserir(item.getInfo().getChave(), item.getInfo().getInfo());
+                    }
+                }
+            }
+        }
+    }
 }
